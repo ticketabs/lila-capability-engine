@@ -108,15 +108,21 @@ _BUILTIN_SKILLS = (
         "skill_id": "skill.owner-guided-screen-and-ui",
         "version": "1.0.0",
         "title": "Owner-Guided Screen & Desktop Interaction",
-        "summary": "Observe screen captures, present Island cards, manage clipboard/volume/notifications, and act with approval.",
+        "summary": "Observe screen captures, present Island cards, control media/apps/browser across Windows & Linux, and act with approval.",
         "instructions": (
             "Visual observation and UI actions (`computer_observe`, `computer_act`) require explicit owner gestures and OIA tokens. "
-            "Use `screen_present` / `notify_user` / `island_control` cleanly to communicate results on Desktop Island."
+            "Use `media_control` for music/playback control, `open_url` to open links in a real Windows or Linux browser, "
+            "`open_app` to launch Windows or Linux apps (`target_os` can be 'auto', 'windows', or 'linux'), and "
+            "`screen_present` / `notify_user` / `island_control` cleanly to communicate results on Desktop Island."
         ),
-        "tags": ("desktop", "screen", "ui", "click", "clipboard", "volume", "notify", "island", "power"),
+        "tags": (
+            "desktop", "screen", "ui", "click", "clipboard", "volume", "notify", "island", "power",
+            "media", "music", "spotify", "browser", "url", "app", "launch", "windows", "linux",
+        ),
         "recommended_tools": (
             "computer_observe", "computer_act", "island_control", "screen_present",
             "notify_user", "clipboard_get", "clipboard_set", "set_volume", "power_action",
+            "media_control", "open_url", "open_app",
         ),
     },
     {
@@ -256,14 +262,21 @@ _BUILTIN_BUNDLES = (
         capability_id="cap.desktop-perception-control",
         version="1.0.0",
         title="Desktop Perception, UI & Island Controls",
-        summary="Owner-gated screen observation/UI automation, clipboard, volume, Island cards, notifications, and power controls.",
+        summary="Owner-gated screen observation/UI automation, cross-OS media/apps/browser launch, clipboard, volume, Island cards, notifications, and power controls.",
         skill_ids=("skill.owner-guided-screen-and-ui",),
         tool_names=(
             "computer_observe", "computer_act", "island_control", "screen_present",
             "notify_user", "clipboard_get", "clipboard_set", "set_volume", "power_action",
+            "media_control", "open_url", "open_app",
         ),
-        tags=("desktop", "screen", "ui", "clipboard", "volume", "notify", "island", "power", "click", "window"),
-        trigger_phrases=("clipboard", "set volume", "notify me", "click on", "look at my screen"),
+        tags=(
+            "desktop", "screen", "ui", "clipboard", "volume", "notify", "island", "power", "click", "window",
+            "media", "music", "spotify", "browser", "url", "app", "launch", "windows", "linux",
+        ),
+        trigger_phrases=(
+            "clipboard", "set volume", "notify me", "click on", "look at my screen",
+            "open app", "open browser", "play music", "pause music", "spotify",
+        ),
         auto_activate_allowed=False,
         risk_tier="high",
     ),
