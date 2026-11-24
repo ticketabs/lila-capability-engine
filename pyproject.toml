@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lila-capability-engine"
+version = "1.0.0"
+description = "Standalone Capability & Skill Orchestration Engine with Lazy Tool Schemas and A/B Evolution"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "AGPL-3.0-only"}
+authors = [{name = "TicketLabs (Harboria Labs)"}]
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["src"]
